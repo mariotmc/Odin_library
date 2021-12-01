@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page Title -->
+    <title>Library</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./dist/style.css" />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <!-- Fonts -->
+    <link href="" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <!-- JS Script -->
+    <script src="./app/js/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>LIBRARY</h1>
+    </header>
+
+    <button id="new-book">New Book</button>
+
+    <div class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="input-container">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" required />
+        </div>
+
+        <div class="input-container">
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author" required />
+        </div>
+
+        <div class="input-container">
+          <label for="pages">Pages</label>
+          <input type="number" name="pages" id="pages" required />
+        </div>
+
+        <div class="input-container">
+          <label for="read">Have you read the book?</label>
+          <input type="checkbox" name="read" id="read" />
+        </div>
+
+        <button id="submit">Submit</button>
+      </div>
+    </div>
+
+    <div id="container"></div>
+  </body>
+</html>
