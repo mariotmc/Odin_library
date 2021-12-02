@@ -17,15 +17,14 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #f1f3f8;
+  background-color: #edf6f9;
   font-family: "Poppins", sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  margin-top: rem(10);
-  margin-bottom: rem(5);
+  margin: 0;
   line-height: 1.1;
 }
 
@@ -39,18 +38,111 @@ p {
   margin: 0;
 }
 
-.modal {
+header {
+  padding: rem(50) 0;
+  background-color: #782729;
+  text-align: center;
+  border-bottom: rem(5) solid #282a33;
+
+  h1 {
+    color: #fff;
+    font-size: rem(50);
+  }
+}
+
+.add-book__container {
+  margin: rem(50) auto;
+  text-align: center;
+
+  #add-book {
+    padding: rem(15) rem(40);
+    font-family: inherit;
+    font-size: rem(24);
+    font-weight: 700;
+    color: #282a33;
+    background-color: #fefefe;
+    border: rem(3) solid #282a33;
+    border-radius: rem(10);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(50);
+  height: auto;
+  width: 70vw;
+  margin: 0 auto;
+  padding-bottom: rem(50);
+
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint(large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.book {
   display: flex;
-  // flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30vh auto;
-  position: sticky;
-  // left: 40%;
-  // top: 50%;
+  color: #282a33;
+  background-color: #fefefe;
+  border: rem(3) solid #282a33;
+  border-radius: rem(5);
+  padding: rem(30) 0;
+
+  h3 {
+    width: 80%;
+    margin-bottom: rem(20);
+    font-size: rem(24);
+    text-align: center;
+  }
+
+  p {
+    font-size: rem(18);
+    margin-bottom: rem(10);
+  }
+
+  .buttons-container {
+    width: 80%;
+    margin-top: rem(10);
+
+    button {
+      width: 50%;
+      padding: rem(10) 0;
+      color: #fff;
+      font-family: inherit;
+      font-size: rem(18);
+      font-weight: 700;
+      border: rem(2) solid #282a33;
+      border-radius: rem(5);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .remove-book__button {
+      background-color: #782729;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
   z-index: 1;
-  width: 400px;
-  height: 300px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0); // Fallback color
   background-color: rgba(0, 0, 0, 0.4);
@@ -62,28 +154,105 @@ p {
   justify-content: center;
   align-items: center;
   background-color: #fefefe;
-  margin: auto;
-  padding: rem(20);
-  border: 1px solid #888;
-  height: 100%;
+  width: fit-content;
+  margin: 25vh auto;
+  padding: rem(20) rem(50);
+  border: rem(2) solid #282a33;
+  border-radius: rem(15);
 }
 
-#submit {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.input-container {
+  width: 100%;
+}
 
-  &:hover,
-  &:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+#modal-heading {
+  margin: rem(20) auto;
+  color: #282a33;
 }
 
 #title,
 #author,
 #pages {
   display: block;
+  font-family: inherit;
+  font-size: rem(20);
+  font-weight: 700;
+  color: #393b44;
+  background-color: white;
+  width: 100%;
+  padding: rem(10);
+  margin: rem(10) auto;
+  border: rem(1) solid #393b44;
+  border-radius: rem(5);
+}
+
+#book-read__container {
+  display: flex;
+  margin: rem(20) auto rem(30);
+  text-align: center;
+  justify-content: center;
+}
+
+#read-label {
+  font-size: rem(20);
+}
+
+[type="checkbox"] {
+  -webkit-appearance: none;
+  width: rem(20);
+  height: rem(20);
+  margin: auto 0 auto rem(10);
+  align-items: center;
+  justify-content: center;
+  border: rem(1) solid #393b44;
+  border-radius: rem(5);
+  background-color: #fff;
+}
+
+[type="checkbox"],
+label {
+  position: relative;
+  cursor: pointer;
+}
+
+[type="checkbox"]:checked {
+  -webkit-appearance: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: rem(20);
+  width: rem(20);
+}
+
+[type="checkbox"]:checked::before,
+[type="checkbox"]:checked::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: rem(3); // cross thickness
+  background-color: #282a33;
+}
+
+[type="checkbox"]:checked::before {
+  transform: rotate(45deg);
+}
+
+[type="checkbox"]:checked::after {
+  transform: rotate(-45deg);
+}
+
+#submit {
+  margin-bottom: rem(10);
+  color: #282a33;
+  color: white;
+  background-color: #782729;
+  font-size: rem(24);
+  font-weight: 700;
+  padding: rem(5) rem(20);
+  border: rem(3) solid #282a33;
+  border-radius: rem(5);
+
+  &:hover {
+    cursor: pointer;
+  }
 }

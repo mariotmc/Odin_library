@@ -24,15 +24,14 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #f1f3f8;
+  background-color: #edf6f9;
   font-family: "Poppins", sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  margin-top: 0.625rem;
-  margin-bottom: 0.3125rem;
+  margin: 0;
   line-height: 1.1;
 }
 
@@ -46,16 +45,104 @@ p {
   margin: 0;
 }
 
-.modal {
+header {
+  padding: 3.125rem 0;
+  background-color: #782729;
+  text-align: center;
+  border-bottom: 0.3125rem solid #282a33;
+}
+header h1 {
+  color: #fff;
+  font-size: 3.125rem;
+}
+
+.add-book__container {
+  margin: 3.125rem auto;
+  text-align: center;
+}
+.add-book__container #add-book {
+  padding: 0.9375rem 2.5rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #282a33;
+  background-color: #fefefe;
+  border: 0.1875rem solid #282a33;
+  border-radius: 0.625rem;
+}
+.add-book__container #add-book:hover {
+  cursor: pointer;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.125rem;
+  height: auto;
+  width: 70vw;
+  margin: 0 auto;
+  padding-bottom: 3.125rem;
+}
+@media (min-width: 48em) {
+  #container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 85.375em) {
+  #container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.book {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30vh auto;
-  position: -webkit-sticky;
-  position: sticky;
+  color: #282a33;
+  background-color: #fefefe;
+  border: 0.1875rem solid #282a33;
+  border-radius: 0.3125rem;
+  padding: 1.875rem 0;
+}
+.book h3 {
+  width: 80%;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.book p {
+  font-size: 1.125rem;
+  margin-bottom: 0.625rem;
+}
+.book .buttons-container {
+  width: 80%;
+  margin-top: 0.625rem;
+}
+.book .buttons-container button {
+  width: 50%;
+  padding: 0.625rem 0;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: 0.125rem solid #282a33;
+  border-radius: 0.3125rem;
+}
+.book .buttons-container button:hover {
+  cursor: pointer;
+}
+.book .buttons-container .remove-book__button {
+  background-color: #782729;
+}
+
+.modal {
+  position: fixed;
   z-index: 1;
-  width: 400px;
-  height: 300px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   overflow: auto;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
@@ -67,26 +154,106 @@ p {
   justify-content: center;
   align-items: center;
   background-color: #fefefe;
-  margin: auto;
-  padding: 1.25rem;
-  border: 1px solid #888;
-  height: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 25vh auto;
+  padding: 1.25rem 3.125rem;
+  border: 0.125rem solid #282a33;
+  border-radius: 0.9375rem;
 }
 
-#submit {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.input-container {
+  width: 100%;
 }
-#submit:hover, #submit:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+
+#modal-heading {
+  margin: 1.25rem auto;
+  color: #282a33;
 }
 
 #title,
 #author,
 #pages {
   display: block;
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #393b44;
+  background-color: white;
+  width: 100%;
+  padding: 0.625rem;
+  margin: 0.625rem auto;
+  border: 0.0625rem solid #393b44;
+  border-radius: 0.3125rem;
+}
+
+#book-read__container {
+  display: flex;
+  margin: 1.25rem auto 1.875rem;
+  text-align: center;
+  justify-content: center;
+}
+
+#read-label {
+  font-size: 1.25rem;
+}
+
+[type=checkbox] {
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: auto 0 auto 0.625rem;
+  align-items: center;
+  justify-content: center;
+  border: 0.0625rem solid #393b44;
+  border-radius: 0.3125rem;
+  background-color: #fff;
+}
+
+[type=checkbox],
+label {
+  position: relative;
+  cursor: pointer;
+}
+
+[type=checkbox]:checked {
+  -webkit-appearance: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+[type=checkbox]:checked::before,
+[type=checkbox]:checked::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.1875rem;
+  background-color: #282a33;
+}
+
+[type=checkbox]:checked::before {
+  transform: rotate(45deg);
+}
+
+[type=checkbox]:checked::after {
+  transform: rotate(-45deg);
+}
+
+#submit {
+  margin-bottom: 0.625rem;
+  color: #282a33;
+  color: white;
+  background-color: #782729;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.3125rem 1.25rem;
+  border: 0.1875rem solid #282a33;
+  border-radius: 0.3125rem;
+}
+#submit:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

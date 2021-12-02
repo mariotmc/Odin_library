@@ -15,10 +15,12 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-    <!-- Fonts -->
-    <link href="" rel="stylesheet" />
     <!-- Favicon -->
-    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="https://www.theodinproject.com/favicon-32x32.png"
+      type="image/x-icon"
+    />
     <!-- JS Script -->
     <script src="./app/js/script.js" defer></script>
   </head>
@@ -27,34 +29,53 @@
       <h1>LIBRARY</h1>
     </header>
 
-    <button id="new-book">New Book</button>
+    <div class="add-book__container">
+      <button id="add-book">Add Book</button>
+    </div>
+
+    <div id="container"></div>
 
     <div class="modal" style="display: none">
       <div class="modal-content">
+        <h2 id="modal-heading">Add new Book</h2>
+
         <div class="input-container">
-          <label for="title">Title</label>
-          <input type="text" name="title" id="title" required />
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Title"
+            required
+          />
         </div>
 
         <div class="input-container">
-          <label for="author">Author</label>
-          <input type="text" name="author" id="author" required />
+          <input
+            type="text"
+            name="author"
+            id="author"
+            placeholder="Author"
+            required
+          />
         </div>
 
         <div class="input-container">
-          <label for="pages">Pages</label>
-          <input type="number" name="pages" id="pages" required />
+          <input
+            type="number"
+            name="pages"
+            id="pages"
+            placeholder="Pages"
+            required
+          />
         </div>
 
-        <div class="input-container">
-          <label for="read">Have you read the book?</label>
+        <div class="input-container" id="book-read__container">
+          <label for="read" id="read-label">Have you read the book?</label>
           <input type="checkbox" name="read" id="read" />
         </div>
 
         <button id="submit">Submit</button>
       </div>
     </div>
-
-    <div id="container"></div>
   </body>
 </html>
