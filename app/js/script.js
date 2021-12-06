@@ -24,14 +24,16 @@ addBookButton.addEventListener("click", () => {
   modal.style.display = "block";
 });
 
-function Book() {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = () => {
-    return this.title, this.author, this.pages, this.read;
-  };
+class Book {
+  constructor() {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.info = () => {
+      return this.title, this.author, this.pages, this.read;
+    };
+  }
 }
 
 function displayBooks() {
